@@ -7,31 +7,30 @@
     tools:context="com.example.myapplication.myapplication.MainActivity">
 
     <com.jjoe64.graphview.GraphView
-        android:layout_width="0dp"
-        android:layout_height="350dp"
+        android:layout_width="310dp"
+        android:layout_height="280dp"
         android:id="@+id/graph"
         android:layout_marginLeft="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="16dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="16dp" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="295dp"
-        android:layout_height="46dp"
+        android:layout_height="55dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="-521dp"
+        android:layout_marginTop="12dp"
         android:gravity="center"
-        android:text="'You miss 100% of the shots you never take. --Wayne Gretzky' -- Michael Scott"
+        android:text="'You miss 100% of the shots you never take.\n -Wayne Gretzky'\n - Michael Scott"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/graph"
         tools:text="' &quot;You miss 100% of the shots you never take.&quot; --Wayne Gretzky' -- Michael Scott"
-        app:layout_constraintHorizontal_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.515" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -42,9 +41,7 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:srcCompat="@drawable/ic_date_range_black_24dp"
-        tools:clickable="true"
-        tools:onClick="openViewer" />
+        app:srcCompat="@drawable/ic_date_range_black_24dp" />
 
     <ImageButton
         android:id="@+id/imageButton2"
@@ -55,9 +52,7 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/ic_question_answer_black_24dp"
-        tools:clickable="true"
-        tools:onClick="openQuestionairre" />
+        app:srcCompat="@drawable/ic_question_answer_black_24dp" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"

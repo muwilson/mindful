@@ -21,6 +21,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import static android.graphics.Color.GREEN;
+
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
 
@@ -67,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 new DataPoint(d9, 6),
                 new DataPoint(d10, 1)
         });
+        series.setColor(GREEN);
         series.setDrawDataPoints(true);
         series.setDataPointsRadius(20);
         series.setOnDataPointTapListener(new OnDataPointTapListener() {
@@ -99,16 +102,22 @@ public class MainActivity extends AppCompatActivity {
         // as we use dates as labels, the human rounding to nice readable numbers
         // is not necessary
         graph.getGridLabelRenderer().setHumanRounding(false);
-    }
 
-    public void openQuestionairre(View view) {
-        Intent intent = new Intent(this, QuestionairreActivity.class);
-        startActivity(intent);
-    }
+        findViewById(R.id.imageButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ViewingActivity.class);
+                startActivity(intent);
+            }
+        });
 
-    public void openViewer(View view) {
-        Intent intent = new Intent(this, ViewingActivity.class);
-        startActivity(intent);
-    }
+        findViewById(R.id.imageButton2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), QuestionairreActivity.class);
+                startActivity(intent);
+            }
+        });
 
+    }
 }
