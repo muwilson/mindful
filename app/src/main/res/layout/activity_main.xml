@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.myapplication.myapplication.MainActivity">
+
+    <com.jjoe64.graphview.GraphView
+        android:layout_width="0dp"
+        android:layout_height="350dp"
+        android:id="@+id/graph"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="295dp"
+        android:layout_height="46dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="-521dp"
+        android:gravity="center"
+        android:text="'You miss 100% of the shots you never take. --Wayne Gretzky' -- Michael Scott"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/graph"
+        tools:text="' &quot;You miss 100% of the shots you never take.&quot; --Wayne Gretzky' -- Michael Scott"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="136dp"
+        android:layout_height="86dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginLeft="32dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:srcCompat="@drawable/ic_date_range_black_24dp"
+        tools:clickable="true"
+        tools:onClick="openViewer" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="136dp"
+        android:layout_height="86dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginRight="32dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/ic_question_answer_black_24dp"
+        tools:clickable="true"
+        tools:onClick="openQuestionairre" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline"
+        app:layout_constraintGuide_begin="20dp"
+        android:orientation="horizontal" />
+</android.support.constraint.ConstraintLayout>
