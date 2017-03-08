@@ -18,8 +18,10 @@ import com.jjoe64.graphview.series.Series;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import static android.graphics.Color.BLUE;
 import static android.graphics.Color.GREEN;
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // generate Dates
-        Calendar calendar = Calendar.getInstance();
+        /*Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DATE, -10);
         Date d1 = calendar.getTime();
         calendar.add(Calendar.DATE, 1);
@@ -52,13 +54,12 @@ public class MainActivity extends AppCompatActivity {
         calendar.add(Calendar.DATE, 1);
         Date d9 = calendar.getTime();
         calendar.add(Calendar.DATE, 1);
-        Date d10 = calendar.getTime();
+        Date d10 = calendar.getTime();*/
 
-        GraphView graph = (GraphView) findViewById(R.id.graph);
 
         // you can directly pass Date objects to DataPoint-Constructor
         // this will convert the Date to double via Date#getTime()
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
+        /*LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
                 new DataPoint(d1, 1),
                 new DataPoint(d2, 2),
                 new DataPoint(d3, 3),
@@ -69,7 +70,19 @@ public class MainActivity extends AppCompatActivity {
                 new DataPoint(d8, 1),
                 new DataPoint(d9, 2),
                 new DataPoint(d10, 2)
-        });
+        });*/
+        GraphView graph = (GraphView) findViewById(R.id.graph);
+
+        DatabaseHandler db = new DatabaseHandler(this);
+        List<Rating> ratings = db.getLastRatings();
+        List<DataPoint> dataPointList = new ArrayList<DataPoint>();
+        for (Rating rat : ratings) {
+            dataPointList.add(new DataPoint(new Date(rat.date * 1000), rat.rating));
+        }
+        DataPoint[] data = dataPointList.toArray(new DataPoint[dataPointList.size()]);
+
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(data);
+
         series.setColor(android.graphics.Color.parseColor("#009688"));
         series.setDrawDataPoints(true);
         series.setDataPointsRadius(10);
@@ -85,19 +98,18 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-
         graph.addSeries(series);
 
         StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
-        staticLabelsFormatter.setVerticalLabels(new String[] {"Bad","Meh", "Good", "Good"});
+        staticLabelsFormatter.setVerticalLabels(new String[] {"Very Bad","Meh", "Very Good", "Very Good"});
         staticLabelsFormatter.setDynamicLabelFormatter(new DateAsXAxisLabelFormatter(this));
         // set date label formatter
         graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
         graph.getGridLabelRenderer().setNumHorizontalLabels(4); // only 4 because of the space
         graph.getGridLabelRenderer().setNumVerticalLabels(3);
         // set manual x bounds to have nice steps
-        graph.getViewport().setMinX(d1.getTime());
-        graph.getViewport().setMaxX(d10.getTime());
+        graph.getViewport().setMinX(dataPointList.get(0).getX());
+        graph.getViewport().setMaxX(dataPointList.get(dataPointList.size() - 1).getX());
         graph.getViewport().setXAxisBoundsManual(true);
 
         // as we use dates as labels, the human rounding to nice readable numbers
