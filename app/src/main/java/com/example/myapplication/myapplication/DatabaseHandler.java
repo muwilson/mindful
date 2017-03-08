@@ -56,16 +56,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // Creating Questions Table
-        String CREATE_QUESTIONS_TABLE = "CREATE TABLE " + TABLE_QUESTIONS + "("
-                + QUESTION_ID + " INTEGER PRIMARY KEY," + QUESTION_TEXT + " TEXT,"
-                + ANSWER_1 + " TEXT" + ANSWER_2 + " TEXT" + ANSWER_3 + " TEXT" + ")";
+        String CREATE_QUESTIONS_TABLE = "CREATE TABLE " + TABLE_QUESTIONS + " ( "
+                + QUESTION_ID + " INTEGER PRIMARY KEY, " + QUESTION_TEXT + " TEXT, "
+                + ANSWER_1 + " TEXT, " + ANSWER_2 + " TEXT, " + ANSWER_3 + " TEXT " + ")";
         db.execSQL(CREATE_QUESTIONS_TABLE);
 
         // filling Questions Table
         addQuestion(new Question(1, "How stressed are you?", "Very Stressed", "Somewhat Stressed", "Not Stressed"));
         addQuestion(new Question(2, "How have you been eating?", "Unhealthy", "Somewhat Healthy", "Healthy"));
         addQuestion(new Question(3, "How did you sleep last night?", "Poorly", "Okay", "Well"));
-
+        /*
         // Creating Answers Table
         String CREATE_ANSWERS_TABLE = "CREATE TABLE answers ( "
                 + "answer_date INTEGER, "
@@ -79,7 +79,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         String CREATE_RATINGS_TABLE = "CREATE TABLE ratings ( " +
                 "rating_date INTEGER PRIMARY KEY, rating INTEGER)";
         db.execSQL(CREATE_RATINGS_TABLE);
-
+        */
         Log.d("We", "got here");
     }
 
@@ -114,7 +114,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_QUESTIONS;
 
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         // looping through all rows and adding to list
@@ -132,7 +132,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
 
         cursor.close();
-
+        db.close();
         // return contact list
         return questionList;
     }
