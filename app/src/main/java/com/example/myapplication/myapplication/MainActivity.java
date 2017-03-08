@@ -1,5 +1,6 @@
 package com.example.myapplication.myapplication;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,11 +30,8 @@ import static android.graphics.Color.GREEN;
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        // generate Dates
+    // called in both onCreate and onResume
+    void loadGraph() {
         GraphView graph = (GraphView) findViewById(R.id.graph);
 
         DatabaseHandler db = new DatabaseHandler(this);
@@ -78,7 +76,56 @@ public class MainActivity extends AppCompatActivity {
         // as we use dates as labels, the human rounding to nice readable numbers
         // is not necessary
         graph.getGridLabelRenderer().setHumanRounding(false);
+        return;
+    }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.actionbar);
+        // generate Dates
+        /*Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, -10);
+        Date d1 = calendar.getTime();
+        calendar.add(Calendar.DATE, 1);
+        Date d2 = calendar.getTime();
+        calendar.add(Calendar.DATE, 1);
+        Date d3 = calendar.getTime();
+        calendar.add(Calendar.DATE, 1);
+        Date d4 = calendar.getTime();
+        calendar.add(Calendar.DATE, 1);
+        Date d5 = calendar.getTime();
+        calendar.add(Calendar.DATE, 1);
+        Date d6 = calendar.getTime();
+        calendar.add(Calendar.DATE, 1);
+        Date d7 = calendar.getTime();
+        calendar.add(Calendar.DATE, 1);
+        Date d8 = calendar.getTime();
+        calendar.add(Calendar.DATE, 1);
+        Date d9 = calendar.getTime();
+        calendar.add(Calendar.DATE, 1);
+        Date d10 = calendar.getTime();*/
+
+
+        // you can directly pass Date objects to DataPoint-Constructor
+        // this will convert the Date to double via Date#getTime()
+        /*LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
+                new DataPoint(d1, 1),
+                new DataPoint(d2, 2),
+                new DataPoint(d3, 3),
+                new DataPoint(d4, 1),
+                new DataPoint(d5, 2),
+                new DataPoint(d6, 1),
+                new DataPoint(d7, 3),
+                new DataPoint(d8, 1),
+                new DataPoint(d9, 2),
+                new DataPoint(d10, 2)
+        });*/
+        loadGraph();
+        DatabaseHandler db = new DatabaseHandler(this);
         findViewById(R.id.imageButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,5 +150,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadGraph();
     }
 }

@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.myapplication.myapplication.MainActivity">
-
     <com.jjoe64.graphview.GraphView
         android:layout_width="280dp"
         android:layout_height="265dp"

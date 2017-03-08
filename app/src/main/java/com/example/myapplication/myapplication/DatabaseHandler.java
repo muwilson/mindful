@@ -70,7 +70,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + " (1, 'How stressed are you?', 'Very Stressed', 'Somewhat Stressed', 'Not Stressed'), "
                 + " (2, 'How have you been eating?', 'Unhealthy', 'Somewhat Healthy', 'Healthy'), "
                 + " (3, 'How did you sleep last night?', 'Poorly', 'Okay', 'Well'), "
-                + " (4, 'How much did you work today?', 'None', 'A little', 'A lot'), "
+                + " (4, 'How did work go today?', 'Poorly', 'Okay', 'Well'), "
                 + " (5, 'How much have you exercised today?', 'Not at all', 'A little', 'A lot'), "
                 + " (6, 'How many friends and family have you talked to today?', '0-2', '2-10', '10+') ";
         db.execSQL(POPULATE_QUESTIONS_TABLE);
