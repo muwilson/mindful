@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">Mindful</string>
-    <string name="edit_message">Enter a message</string>
-    <string name="button_send">Send</string>
+    <string name="screen_slide">This is a screen slide.</string>
 </resources>
