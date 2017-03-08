@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner1Items">
+        <item>Very Bad</item>
+        <item>Bad</item>
+        <item>Meh</item>
+        <item>Good</item>
+        <item>Very Good</item>
+    </string-array>
+    <string-array name="spinner2Items">
+        <item>Stress</item>
+        <item>Diet</item>
+        <item>Sleep</item>
+        <item>Work</item>
+        <item>Exercise</item>
+        <item>Social</item>
+    </string-array>
+</resources>

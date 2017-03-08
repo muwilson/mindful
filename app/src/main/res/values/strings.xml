@@ -2,19 +2,4 @@
     <string name="app_name">Mindful</string>
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
-    <string-array name="spinner1Items">
-        <item>Very Bad</item>
-        <item>Bad</item>
-        <item>Meh</item>
-        <item>Good</item>
-        <item>Very Good</item>
-    </string-array>
-    <string-array name="spinner2Items">
-        <item>Stress</item>
-        <item>Diet</item>
-        <item>Sleep</item>
-        <item>Work</item>
-        <item>Exercise</item>
-        <item>Social</item>
-    </string-array>
 </resources>
