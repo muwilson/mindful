@@ -21,6 +21,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import static android.graphics.Color.BLUE;
 import static android.graphics.Color.GREEN;
 
 public class MainActivity extends AppCompatActivity {
@@ -59,19 +60,19 @@ public class MainActivity extends AppCompatActivity {
         // this will convert the Date to double via Date#getTime()
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
                 new DataPoint(d1, 1),
-                new DataPoint(d2, 10),
+                new DataPoint(d2, 2),
                 new DataPoint(d3, 3),
-                new DataPoint(d4, 7),
+                new DataPoint(d4, 1),
                 new DataPoint(d5, 2),
-                new DataPoint(d6, 12),
-                new DataPoint(d7, 11),
-                new DataPoint(d8, 4),
-                new DataPoint(d9, 6),
-                new DataPoint(d10, 1)
+                new DataPoint(d6, 1),
+                new DataPoint(d7, 3),
+                new DataPoint(d8, 1),
+                new DataPoint(d9, 2),
+                new DataPoint(d10, 2)
         });
-        series.setColor(GREEN);
+        series.setColor(android.graphics.Color.parseColor("#009688"));
         series.setDrawDataPoints(true);
-        series.setDataPointsRadius(20);
+        series.setDataPointsRadius(10);
         series.setOnDataPointTapListener(new OnDataPointTapListener() {
             @Override
             public void onTap(Series series, final DataPointInterface dataPoint) {
