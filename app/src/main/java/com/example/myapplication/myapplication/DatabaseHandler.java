@@ -70,7 +70,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + " (1, 'How stressed are you?', 'Very Stressed', 'Somewhat Stressed', 'Not Stressed'), "
                 + " (2, 'How have you been eating?', 'Unhealthy', 'Somewhat Healthy', 'Healthy'), "
                 + " (3, 'How did you sleep last night?', 'Poorly', 'Okay', 'Well'), "
-                + " (4, 'How much did you work today?', 'Poorly', 'Okay', 'Well'), "
+                + " (4, 'How much did you work today?', 'None', 'A little', 'A lot'), "
                 + " (5, 'How much have you exercised today?', 'Not at all', 'A little', 'A lot'), "
                 + " (6, 'How many friends and family have you talked to today?', '0-2', '2-10', '10+') ";
         db.execSQL(POPULATE_QUESTIONS_TABLE);
@@ -231,5 +231,22 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // Inserting Row
         db.insert(TABLE_ANSWERS, null, values);
         db.close(); // Closing database connection
+    }
+
+    public List<Answer> getAnswers(int question_id, int rating) {
+        List<Answer> answerList = new ArrayList<Answer>();
+
+        String selectQuery = "SELECT RESPONSE "
+                + " FROM " + TABLE_ANSWERS
+                + " JOIN " + TABLE_RATINGS
+                + " ON " + TABLE_ANSWERS + "." + ANSWER_DATE
+                + " = " + TABLE_RATINGS + "." + RATING_DATE
+                + " WHERE " + RATING + " = " + Integer.toString(rating)
+                + " AND " + QUESTION_ID + " = " + Integer.toString(question_id);
+        SQLiteDatabase db = this.getReadableDatabase();
+
+
+
+        return answerList;
     }
 }

@@ -34,43 +34,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // generate Dates
-        /*Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DATE, -10);
-        Date d1 = calendar.getTime();
-        calendar.add(Calendar.DATE, 1);
-        Date d2 = calendar.getTime();
-        calendar.add(Calendar.DATE, 1);
-        Date d3 = calendar.getTime();
-        calendar.add(Calendar.DATE, 1);
-        Date d4 = calendar.getTime();
-        calendar.add(Calendar.DATE, 1);
-        Date d5 = calendar.getTime();
-        calendar.add(Calendar.DATE, 1);
-        Date d6 = calendar.getTime();
-        calendar.add(Calendar.DATE, 1);
-        Date d7 = calendar.getTime();
-        calendar.add(Calendar.DATE, 1);
-        Date d8 = calendar.getTime();
-        calendar.add(Calendar.DATE, 1);
-        Date d9 = calendar.getTime();
-        calendar.add(Calendar.DATE, 1);
-        Date d10 = calendar.getTime();*/
-
-
-        // you can directly pass Date objects to DataPoint-Constructor
-        // this will convert the Date to double via Date#getTime()
-        /*LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
-                new DataPoint(d1, 1),
-                new DataPoint(d2, 2),
-                new DataPoint(d3, 3),
-                new DataPoint(d4, 1),
-                new DataPoint(d5, 2),
-                new DataPoint(d6, 1),
-                new DataPoint(d7, 3),
-                new DataPoint(d8, 1),
-                new DataPoint(d9, 2),
-                new DataPoint(d10, 2)
-        });*/
         GraphView graph = (GraphView) findViewById(R.id.graph);
 
         DatabaseHandler db = new DatabaseHandler(this);
@@ -83,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(data);
 
-        series.setColor(android.graphics.Color.parseColor("#009688"));
+        series.setColor(android.graphics.Color.parseColor("#3D5AFE"));
         series.setDrawDataPoints(true);
         series.setDataPointsRadius(10);
         series.setOnDataPointTapListener(new OnDataPointTapListener() {
@@ -101,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         graph.addSeries(series);
 
         StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
-        staticLabelsFormatter.setVerticalLabels(new String[] {"Very Bad","Meh", "Very Good", "Very Good"});
+        staticLabelsFormatter.setVerticalLabels(new String[] {"", "", "", ""});
         staticLabelsFormatter.setDynamicLabelFormatter(new DateAsXAxisLabelFormatter(this));
         // set date label formatter
         graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
@@ -124,13 +87,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.imageButton2).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), QuestionairreActivity.class);
-                startActivity(intent);
-            }
-        });
-
+        if (db.didRateToday()) {
+            findViewById(R.id.imageButton2).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getApplicationContext(), "You've already journalled today!", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } else {
+            findViewById(R.id.imageButton2).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), QuestionairreActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
     }
 }
