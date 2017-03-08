@@ -9,6 +9,8 @@ public class Answer {
     public int q_id;
     public int response;
 
+    public Answer() {}
+
     public Answer(long date_in, int qid_in, int response_in) {
         this.date = date_in;
         this.q_id = qid_in;

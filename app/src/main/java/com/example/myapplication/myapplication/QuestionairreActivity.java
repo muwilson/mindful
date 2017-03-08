@@ -23,8 +23,10 @@ public class QuestionairreActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         DatabaseHandler db = new DatabaseHandler(this);
         questions = db.getQuestions();
+
         questions.add(0, new Question(0, "How are you feeling today?", "Very Bad", "Meh", "Very Good"));
         this.numQuestions = questions.size();
 
