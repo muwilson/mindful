@@ -126,6 +126,17 @@ public class MainActivity extends AppCompatActivity {
         });*/
         loadGraph();
         DatabaseHandler db = new DatabaseHandler(this);
+//        long date_in = 1488319200;
+//        Answer a = new Answer(date_in, 1, 2);
+//        String result = db.addAnswer(a);
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(), "SQLite error: " + result, Toast.LENGTH_SHORT).show();
+//        }
+//        a = new Answer(1488319200, 2, 2);
+//        result = db.addAnswer(a);
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(), "SQLite error: " + result, Toast.LENGTH_SHORT).show();
+//        }
         findViewById(R.id.imageButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

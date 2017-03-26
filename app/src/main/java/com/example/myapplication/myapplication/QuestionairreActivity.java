@@ -75,10 +75,11 @@ public class QuestionairreActivity extends AppCompatActivity {
                 questions.get(indexOfQuestion).answer_chosen = ((SeekBar) findViewById(R.id.seekBar1)).getProgress();
                 if (indexOfQuestion == numQuestions - 1) {
                     Date d = new Date();
+                    long timestamp = d.getTime() / 1000;
                     boolean first = true;
                     // need to make answers
                     for (Question q : questions) {
-                        Answer answer = new Answer(d.getTime() / 1000, q.question_id, q.answer_chosen);
+                        Answer answer = new Answer(timestamp, q.question_id, q.answer_chosen);
                         if (first) {    // first question is the Rating of the day
                             db.addRating(answer);
                             first = false;

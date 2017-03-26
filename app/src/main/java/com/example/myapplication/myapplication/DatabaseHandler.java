@@ -3,9 +3,11 @@ package com.example.myapplication.myapplication;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.myapplication.myapplication.Question;
 import com.example.myapplication.myapplication.QuestionairreActivity;
@@ -72,7 +74,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + " (3, 'How did you sleep last night?', 'Poorly', 'Okay', 'Well'), "
                 + " (4, 'How did work go today?', 'Poorly', 'Okay', 'Well'), "
                 + " (5, 'How much have you exercised today?', 'Not at all', 'A little', 'A lot'), "
-                + " (6, 'How many friends and family have you talked to today?', '0-2', '2-10', '10+') ";
+                + " (6, 'How many friends and family have you talked to today?', '0-1', '2-9', '10+') ";
         db.execSQL(POPULATE_QUESTIONS_TABLE);
 
         //Creating Ratings Table
@@ -81,7 +83,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + RATING + " INTEGER )";
         db.execSQL(CREATE_RATINGS_TABLE);
 
-        String POPULATE_RATINGS_TABLE = "INSERT INTO " + TABLE_RATINGS + " VALUES "
+        String POPULATE_RATINGS_TABLE = "INSERT INTO " + TABLE_RATINGS + " VALUES"
                 + " (1488319200, 4), "
                 + " (1488405600, 1), "
                 + " (1488492000, 3), "
@@ -97,9 +99,70 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + ANSWER_DATE + " INTEGER, "
                 + QUESTION_ID + " INTEGER, "
                 + RESPONSE + " INTEGER, "
-                + " PRIMARY KEY ( " + ANSWER_DATE + " , " + QUESTION_ID + " ), "
-                + " FOREIGN KEY ( " + QUESTION_ID + " ) REFERENCES " + TABLE_QUESTIONS + "(" + QUESTION_ID + " )) ";
+                + "PRIMARY KEY (" + ANSWER_DATE + ", " + QUESTION_ID + "), "
+                + "FOREIGN KEY (" + QUESTION_ID + ") REFERENCES " + TABLE_QUESTIONS + "(" + QUESTION_ID + " ))";
         db.execSQL(CREATE_ANSWERS_TABLE);
+
+//        long date_in = 1488319200;
+//        Answer a = new Answer(date_in, 1, 2);
+//        addAnswer(a);
+        String POPULATE_ANSWERS_TABLE = "INSERT INTO " + TABLE_ANSWERS + " VALUES "
+                + " (1488319200, 1, 2), "
+                + " (1488319200, 2, 2), "
+                + " (1488319200, 3, 2), "
+                + " (1488319200, 4, 2), "
+                + " (1488319200, 5, 2), "
+                + " (1488319200, 6, 2), "
+
+                + " (1488405600, 1, 0), "
+                + " (1488405600, 2, 1), "
+                + " (1488405600, 3, 0), "
+                + " (1488405600, 4, 1), "
+                + " (1488405600, 5, 0), "
+                + " (1488405600, 6, 1), "
+
+                + " (1488492000, 1, 1), "
+                + " (1488492000, 2, 2), "
+                + " (1488492000, 3, 1), "
+                + " (1488492000, 4, 2), "
+                + " (1488492000, 5, 1), "
+                + " (1488492000, 6, 2), "
+
+                + " (1488578400, 1, 1), "
+                + " (1488578400, 2, 1), "
+                + " (1488578400, 3, 1), "
+                + " (1488578400, 4, 1), "
+                + " (1488578400, 5, 1), "
+                + " (1488578400, 6, 1), "
+
+                + " (1488664800, 1, 0), "
+                + " (1488664800, 2, 0), "
+                + " (1488664800, 3, 0), "
+                + " (1488664800, 4, 0), "
+                + " (1488664800, 5, 0), "
+                + " (1488664800, 6, 0), "
+
+                + " (1488751200, 1, 1), "
+                + " (1488751200, 1, 0), "
+                + " (1488751200, 1, 1), "
+                + " (1488751200, 1, 0), "
+                + " (1488751200, 1, 1), "
+                + " (1488751200, 1, 0), "
+
+                + " (1488837600, 1, 0), "
+                + " (1488837600, 1, 1), "
+                + " (1488837600, 1, 0), "
+                + " (1488837600, 1, 1), "
+                + " (1488837600, 1, 0), "
+                + " (1488837600, 1, 1), "
+
+                + " (1488924000, 2, 1), "
+                + " (1488924000, 2, 1), "
+                + " (1488924000, 2, 1), "
+                + " (1488924000, 2, 1), "
+                + " (1488924000, 2, 1), "
+                + " (1488924000, 2, 1)";
+        db.execSQL(POPULATE_ANSWERS_TABLE);
     }
 
     // Upgrading database
@@ -221,7 +284,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return sdf.format(dateOfLast).equals(sdf.format(today));
     }
 
-    public void addAnswer(Answer answer) {
+    public String addAnswer(Answer answer) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -229,24 +292,44 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(QUESTION_ID, answer.q_id);
         values.put(RESPONSE, answer.response);
         // Inserting Row
-        db.insert(TABLE_ANSWERS, null, values);
+        try {
+            db.insert(TABLE_ANSWERS, null, values);
+        } catch (SQLException ex) {
+            db.close();
+            return ex.toString();
+        }
         db.close(); // Closing database connection
+        return null;
     }
 
     public List<Answer> getAnswers(int question_id, int rating) {
         List<Answer> answerList = new ArrayList<Answer>();
-
         String selectQuery = "SELECT RESPONSE "
                 + " FROM " + TABLE_ANSWERS
-                + " JOIN " + TABLE_RATINGS
-                + " ON " + TABLE_ANSWERS + "." + ANSWER_DATE
-                + " = " + TABLE_RATINGS + "." + RATING_DATE
-                + " WHERE " + RATING + " = " + Integer.toString(rating)
-                + " AND " + QUESTION_ID + " = " + Integer.toString(question_id);
+                + " LEFT JOIN " + TABLE_RATINGS
+                + " ON " + ANSWER_DATE
+                + " = " + RATING_DATE;
+//                + " WHERE " + RATING + " = " + Integer.toString(rating)
+//                + " AND " + QUESTION_ID + " = " + Integer.toString(question_id);
         SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
 
+        Date d = new Date();
+        long timestamp = d.getTime() / 1000;
 
-
+        // looping through all rows and adding to answer list
+        if (cursor.moveToFirst()) {
+            do {
+                Answer answer = new Answer();
+                // date not necessary here, so just provide default date
+                answer.date = timestamp;
+                answer.q_id = question_id;
+                answer.response = Integer.parseInt(cursor.getString(0));
+                answerList.add(answer);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
         return answerList;
     }
 }
