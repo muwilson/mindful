@@ -6,13 +6,23 @@
     android:layout_height="match_parent"
     tools:context="com.example.myapplication.myapplication.ViewingActivity">
 
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="39dp"
+        android:layout_marginTop="8dp"
+        android:text="Select a day quality :"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="183dp"
         android:layout_height="33dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,13 +31,13 @@
         android:id="@+id/spinner2"
         android:layout_width="183dp"
         android:layout_height="33dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintTop_toBottomOf="@+id/spinner"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.503" />
+        app:layout_constraintHorizontal_bias="0.504" />
 
     <TextView
         android:id="@+id/textView6"
@@ -84,4 +94,26 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="39dp"
+        android:layout_marginTop="8dp"
+        android:text="Select a day quality :"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="39dp"
+        android:layout_marginTop="75dp"
+        android:text="Select a question :"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
