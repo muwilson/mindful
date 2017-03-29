@@ -81,7 +81,7 @@ public class ViewingActivity extends AppCompatActivity implements AdapterView.On
         }
 
         ((TextView) findViewById(R.id.day_quality)).setText("On a " + getResources().getStringArray(R.array.day_qualities)[day_quality] + " day");
-        List<Answer> answers = db.getAnswers(question_id, day_quality);
+        String ans = db.getAnswers(question_id, day_quality);
 //        Integer response_frequency[] = new Integer[3];     // default initial value to zero
 //        for (Answer answer : answers) {
 //            ++response_frequency[answer.response];     // store the # of each response to this particular question
@@ -104,8 +104,7 @@ public class ViewingActivity extends AppCompatActivity implements AdapterView.On
 //        ((TextView) findViewById(R.id.first_percentage)).setText(
 //                Integer.toString((int)((double)response_frequency[0] / (double)answers.size()) * 100) + "% " + type[0]);
         Toast.makeText(parent.getContext(),
-                "answers.size(): " + Integer.toString(answers.size()),
-                Toast.LENGTH_SHORT).show();//        ((TextView) findViewById(R.id.second_percentage)).setText(
+                ans, Toast.LENGTH_SHORT).show();//        ((TextView) findViewById(R.id.second_percentage)).setText(
 //                Integer.toString((int)((double)response_frequency[1] / (double)answers.size()) * 100) + "% " + type[1]);
 //        ((TextView) findViewById(R.id.third_percentage)).setText(
 //                Integer.toString((int)((double)response_frequency[2] / (double)answers.size()) * 100) + "% " + type[2]);

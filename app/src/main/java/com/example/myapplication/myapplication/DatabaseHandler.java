@@ -92,7 +92,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 //        addRating(new Answer(1488837600, 0, 1));
 //        addRating(new Answer(1488924000, 0, 2));
 
-
 //        String POPULATE_RATINGS_TABLE = "INSERT INTO " + TABLE_RATINGS + " VALUES"
 //                + " (1488319200, 4), "
 //                + " (1488405600, 1), "
@@ -112,6 +111,62 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + "PRIMARY KEY (" + ANSWER_DATE + ", " + QUESTION_ID + "), "
                 + "FOREIGN KEY (" + QUESTION_ID + ") REFERENCES " + TABLE_QUESTIONS + "(" + QUESTION_ID + " ))";
         db.execSQL(CREATE_ANSWERS_TABLE);
+
+//        addAnswer(new Answer(1488319200, 1, 2));
+//        addAnswer(new Answer(1488319200, 2, 2));
+//        addAnswer(new Answer(1488319200, 3, 2));
+//        addAnswer(new Answer(1488319200, 4, 2));
+//        addAnswer(new Answer(1488319200, 5, 2));
+//        addAnswer(new Answer(1488319200, 6, 2));
+//
+//        addAnswer(new Answer(1488405600, 1, 0));
+//        addAnswer(new Answer(1488405600, 2, 1));
+//        addAnswer(new Answer(1488405600, 3, 0));
+//        addAnswer(new Answer(1488405600, 4, 1));
+//        addAnswer(new Answer(1488405600, 5, 0));
+//        addAnswer(new Answer(1488405600, 6, 1));
+//
+//        addAnswer(new Answer(1488492000, 1, 1));
+//        addAnswer(new Answer(1488492000, 2, 2));
+//        addAnswer(new Answer(1488492000, 3, 1));
+//        addAnswer(new Answer(1488492000, 4, 2));
+//        addAnswer(new Answer(1488492000, 5, 1));
+//        addAnswer(new Answer(1488492000, 6, 2));
+//
+//        addAnswer(new Answer(1488578400, 1, 1));
+//        addAnswer(new Answer(1488578400, 2, 1));
+//        addAnswer(new Answer(1488578400, 3, 1));
+//        addAnswer(new Answer(1488578400, 4, 1));
+//        addAnswer(new Answer(1488578400, 5, 1));
+//        addAnswer(new Answer(1488578400, 6, 1));
+//
+//        addAnswer(new Answer(1488664800, 1, 0));
+//        addAnswer(new Answer(1488664800, 2, 0));
+//        addAnswer(new Answer(1488664800, 3, 0));
+//        addAnswer(new Answer(1488664800, 4, 0));
+//        addAnswer(new Answer(1488664800, 5, 0));
+//        addAnswer(new Answer(1488664800, 6, 0));
+//
+//        addAnswer(new Answer(1488751200, 1, 1));
+//        addAnswer(new Answer(1488751200, 2, 0));
+//        addAnswer(new Answer(1488751200, 3, 1));
+//        addAnswer(new Answer(1488751200, 4, 0));
+//        addAnswer(new Answer(1488751200, 5, 1));
+//        addAnswer(new Answer(1488751200, 6, 0));
+//
+//        addAnswer(new Answer(1488837600, 1, 0));
+//        addAnswer(new Answer(1488837600, 2, 1));
+//        addAnswer(new Answer(1488837600, 3, 0));
+//        addAnswer(new Answer(1488837600, 4, 1));
+//        addAnswer(new Answer(1488837600, 5, 0));
+//        addAnswer(new Answer(1488837600, 6, 1));
+//
+//        addAnswer(new Answer(1488924000, 1, 1));
+//        addAnswer(new Answer(1488924000, 2, 1));
+//        addAnswer(new Answer(1488924000, 3, 1));
+//        addAnswer(new Answer(1488924000, 4, 1));
+//        addAnswer(new Answer(1488924000, 5, 1));
+//        addAnswer(new Answer(1488924000, 6, 1));
 
 //        long date_in = 1488319200;
 //        Answer a = new Answer(date_in, 1, 2);
@@ -231,15 +286,21 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return questionList;
     }
 
-    public void addRating(Answer answer) {
+    public String addRating(Answer answer) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(RATING_DATE, answer.date);
         values.put(RATING, answer.response);
-        // Inserting Row
-        db.insert(TABLE_RATINGS, null, values);
+        // attempted row insertion
+        try {
+            db.insert(TABLE_RATINGS, null, values);
+        } catch (SQLException ex) {
+            db.close();
+            return ex.toString();
+        }
         db.close(); // Closing database connection
+        return null;
     }
 
     public List<Rating> getLastRatings() {
@@ -312,8 +373,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return null;
     }
 
-    public List<Answer> getAnswers(int question_id, int rating) {
-        List<Answer> answerList = new ArrayList<Answer>();
+//    public List<Answer> getAnswers(int question_id, int rating) {
+    public String getAnswers(int question_id, int rating) {
+
+//        List<Answer> answerList = new ArrayList<Answer>();
         String selectQuery = "SELECT RESPONSE "
                 + " FROM " + TABLE_ANSWERS;
 //                + " LEFT JOIN " + TABLE_RATINGS
@@ -324,22 +387,26 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        Date d = new Date();
-        long timestamp = d.getTime() / 1000;
+//        Date d = new Date();
+//        long timestamp = d.getTime() / 1000;
+
+        String ans = "";
 
         // looping through all rows and adding to answer list
         if (cursor.moveToFirst()) {
             do {
-                Answer answer = new Answer();
-                // date not necessary here, so just provide default date
-                answer.date = timestamp;
-                answer.q_id = question_id;
-                answer.response = Integer.parseInt(cursor.getString(0));
-                answerList.add(answer);
+//                Answer answer = new Answer();
+//                // date not necessary here, so just provide default date
+//                answer.date = timestamp;
+//                answer.q_id = question_id;
+//                answer.response = Integer.parseInt(cursor.getString(0));
+//                answerList.add(answer);
+                ans += cursor.getString(0) + '\n';
             } while (cursor.moveToNext());
         }
         cursor.close();
         db.close();
-        return answerList;
+//        return answerList;
+        return ans;
     }
 }

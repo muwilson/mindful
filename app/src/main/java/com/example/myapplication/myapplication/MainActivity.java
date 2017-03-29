@@ -90,311 +90,351 @@ public class MainActivity extends AppCompatActivity {
         loadGraph();
         DatabaseHandler db = new DatabaseHandler(this);
 
-        String result;
-
-        result = db.addAnswer(new Answer(1488319200, 1, 2));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488319200, 2, 2));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488319200, 3, 2));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488319200, 4, 2));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488319200, 5, 2));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488319200, 6, 2));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-
-        result = db.addAnswer(new Answer(1488405600, 1, 0));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488405600, 2, 1));if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488405600, 3, 0));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488405600, 4, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488405600, 5, 0));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488405600, 6, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-
-        result = db.addAnswer(new Answer(1488492000, 1, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488492000, 2, 2));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488492000, 3, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488492000, 4, 2));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488492000, 5, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488492000, 6, 2));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-
-        result = db.addAnswer(new Answer(1488578400, 1, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488578400, 2, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488578400, 3, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488578400, 4, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488578400, 5, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488578400, 6, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-
-        result = db.addAnswer(new Answer(1488664800, 1, 0));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488664800, 2, 0));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488664800, 3, 0));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488664800, 4, 0));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488664800, 5, 0));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488664800, 6, 0));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-
-        result = db.addAnswer(new Answer(1488751200, 1, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488751200, 2, 0));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488751200, 3, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488751200, 4, 0));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488751200, 5, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488751200, 6, 0));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-
-        result = db.addAnswer(new Answer(1488837600, 1, 0));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488837600, 2, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488837600, 3, 0));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488837600, 4, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488837600, 5, 0));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488837600, 6, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-
-        result = db.addAnswer(new Answer(1488924000, 1, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488924000, 2, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488924000, 3, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488924000, 4, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488924000, 5, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-        result = db.addAnswer(new Answer(1488924000, 6, 1));
-        if (result != null && !result.isEmpty()) {
-            Toast.makeText(getApplicationContext(),
-                    "error adding to answers database: " + result,
-                    Toast.LENGTH_SHORT).show();
-        }
-
-        db.addRating(new Answer(1488319200, 0, 4));
-        db.addRating(new Answer(1488405600, 0, 1));
-        db.addRating(new Answer(1488492000, 0, 3));
-        db.addRating(new Answer(1488578400, 0, 2));
-        db.addRating(new Answer(1488664800, 0, 0));
-        db.addRating(new Answer(1488751200, 0, 1));
-        db.addRating(new Answer(1488837600, 0, 1));
-        db.addRating(new Answer(1488924000, 0, 2));
+//        String result;
+//
+//        result = db.addRating(new Answer(1488319200, 0, 4));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addRating(new Answer(1488405600, 0, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addRating(new Answer(1488492000, 0, 3));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addRating(new Answer(1488578400, 0, 2));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addRating(new Answer(1488664800, 0, 0));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addRating(new Answer(1488751200, 0, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addRating(new Answer(1488837600, 0, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addRating(new Answer(1488924000, 0, 2));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//
+//        result = db.addAnswer(new Answer(1488319200, 1, 2));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488319200, 2, 2));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488319200, 3, 2));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488319200, 4, 2));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488319200, 5, 2));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488319200, 6, 2));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//
+//        result = db.addAnswer(new Answer(1488405600, 1, 0));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488405600, 2, 1));if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488405600, 3, 0));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488405600, 4, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488405600, 5, 0));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488405600, 6, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//
+//        result = db.addAnswer(new Answer(1488492000, 1, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488492000, 2, 2));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488492000, 3, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488492000, 4, 2));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488492000, 5, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488492000, 6, 2));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//
+//        result = db.addAnswer(new Answer(1488578400, 1, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488578400, 2, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488578400, 3, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488578400, 4, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488578400, 5, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488578400, 6, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//
+//        result = db.addAnswer(new Answer(1488664800, 1, 0));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488664800, 2, 0));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488664800, 3, 0));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488664800, 4, 0));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488664800, 5, 0));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488664800, 6, 0));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//
+//        result = db.addAnswer(new Answer(1488751200, 1, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488751200, 2, 0));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488751200, 3, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488751200, 4, 0));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488751200, 5, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488751200, 6, 0));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//
+//        result = db.addAnswer(new Answer(1488837600, 1, 0));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488837600, 2, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488837600, 3, 0));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488837600, 4, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488837600, 5, 0));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488837600, 6, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//
+//        result = db.addAnswer(new Answer(1488924000, 1, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488924000, 2, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488924000, 3, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488924000, 4, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488924000, 5, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
+//        result = db.addAnswer(new Answer(1488924000, 6, 1));
+//        if (result != null && !result.isEmpty()) {
+//            Toast.makeText(getApplicationContext(),
+//                    "error adding to answers database: " + result,
+//                    Toast.LENGTH_SHORT).show();
+//        }
 
 //        long date_in = 1488319200;
 //        Answer a = new Answer(date_in, 1, 2);
