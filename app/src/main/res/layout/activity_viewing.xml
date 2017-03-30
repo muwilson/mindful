@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context="com.example.myapplication.myapplication.ViewingActivity">
 
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="39dp"
+        android:layout_marginTop="8dp"
+        android:text="Select a day quality :"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="183dp"
@@ -107,4 +117,5 @@
         android:layout_marginLeft="40dp"
         app:layout_constraintVertical_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
