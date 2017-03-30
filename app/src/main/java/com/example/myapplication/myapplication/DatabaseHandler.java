@@ -373,40 +373,40 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return null;
     }
 
-//    public List<Answer> getAnswers(int question_id, int rating) {
-    public String getAnswers(int question_id, int rating) {
+    public List<Answer> getAnswers(int question_id, int rating) {
+//    public String getAnswers(int question_id, int rating) {
 
-//        List<Answer> answerList = new ArrayList<Answer>();
-        String selectQuery = "SELECT RESPONSE "
-                + " FROM " + TABLE_ANSWERS;
-//                + " LEFT JOIN " + TABLE_RATINGS
-//                + " ON " + ANSWER_DATE
-//                + " = " + RATING_DATE;
-//                + " WHERE " + RATING + " = " + Integer.toString(rating)
-//                + " AND " + QUESTION_ID + " = " + Integer.toString(question_id);
+        List<Answer> answerList = new ArrayList<Answer>();
+        String selectQuery = "SELECT RESPONSE"
+                + " FROM " + TABLE_ANSWERS
+                + " JOIN " + TABLE_RATINGS
+                + " ON (" + ANSWER_DATE
+                + " = " + RATING_DATE
+                + " AND " + RATING + " = " + Integer.toString(rating)
+                + " AND " + QUESTION_ID + " = " + Integer.toString(question_id) + ")";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-//        Date d = new Date();
-//        long timestamp = d.getTime() / 1000;
+        Date d = new Date();
+        long timestamp = d.getTime() / 1000;
 
-        String ans = "";
+//        String ans = "";
 
         // looping through all rows and adding to answer list
         if (cursor.moveToFirst()) {
             do {
-//                Answer answer = new Answer();
-//                // date not necessary here, so just provide default date
-//                answer.date = timestamp;
-//                answer.q_id = question_id;
-//                answer.response = Integer.parseInt(cursor.getString(0));
-//                answerList.add(answer);
-                ans += cursor.getString(0) + '\n';
+                Answer answer = new Answer();
+                // date not necessary here, so just provide default date
+                answer.date = timestamp;
+                answer.q_id = question_id;
+                answer.response = Integer.parseInt(cursor.getString(0));
+                answerList.add(answer);
+//                ans += cursor.getString(0) + " " + cursor.getString(1) + " " + cursor.getString(2) + '\n';
             } while (cursor.moveToNext());
         }
         cursor.close();
         db.close();
-//        return answerList;
-        return ans;
+        return answerList;
+//        return ans;
     }
 }

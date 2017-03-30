@@ -81,12 +81,12 @@ public class ViewingActivity extends AppCompatActivity implements AdapterView.On
         }
 
         ((TextView) findViewById(R.id.day_quality)).setText("On a " + getResources().getStringArray(R.array.day_qualities)[day_quality] + " day");
-        String ans = db.getAnswers(question_id, day_quality);
-//        Integer response_frequency[] = new Integer[3];     // default initial value to zero
-//        for (Answer answer : answers) {
-//            ++response_frequency[answer.response];     // store the # of each response to this particular question
-//        }
-//            Arrays.sort(response_frequency, Collections.reverseOrder());    // sort
+        List<Answer> answers = db.getAnswers(question_id + 1, day_quality);
+        int response_frequency[] = new int[3];     // default initial value to zero
+        for (Answer answer : answers) {
+            ++response_frequency[answer.response];     // store the # of each response to this particular question
+        }
+//        Arrays.sort(response_frequency, Collections.reverseOrder());    // sort
         String type[];
         if (question_id == 0) {
             type = getResources().getStringArray(R.array.stress_levels);
@@ -101,13 +101,16 @@ public class ViewingActivity extends AppCompatActivity implements AdapterView.On
         } else {    // question_id == 5
             type = getResources().getStringArray(R.array.friends_talked_to);
         }
-//        ((TextView) findViewById(R.id.first_percentage)).setText(
-//                Integer.toString((int)((double)response_frequency[0] / (double)answers.size()) * 100) + "% " + type[0]);
+
         Toast.makeText(parent.getContext(),
-                ans, Toast.LENGTH_SHORT).show();//        ((TextView) findViewById(R.id.second_percentage)).setText(
-//                Integer.toString((int)((double)response_frequency[1] / (double)answers.size()) * 100) + "% " + type[1]);
-//        ((TextView) findViewById(R.id.third_percentage)).setText(
-//                Integer.toString((int)((double)response_frequency[2] / (double)answers.size()) * 100) + "% " + type[2]);
+                "answers.size(): " + Integer.toString(answers.size()), Toast.LENGTH_SHORT).show();
+
+        ((TextView) findViewById(R.id.first_percentage)).setText(
+                Integer.toString((int)(((double)response_frequency[0] / (double)answers.size()) * 100)) + "% " + type[0]);;
+        ((TextView) findViewById(R.id.second_percentage)).setText(
+                Integer.toString((int)(((double)response_frequency[1] / (double)answers.size()) * 100)) + "% " + type[1]);
+        ((TextView) findViewById(R.id.third_percentage)).setText(
+                Integer.toString((int)(((double)response_frequency[2] / (double)answers.size()) * 100)) + "% " + type[2]);
 
 //        if (pos == 3) {
 //            ((TextView) findViewById(R.id.day_quality)).setText("On a Good day");

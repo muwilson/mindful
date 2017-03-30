@@ -42,7 +42,7 @@ public class QuestionairreActivity extends AppCompatActivity {
         ((SeekBar) findViewById(R.id.seekBar1)).setProgress(2);
 
         //handling back
-        findViewById(R.id.imageButton3).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.prev_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (indexOfQuestion == 0) QuestionairreActivity.super.onBackPressed();
@@ -56,18 +56,18 @@ public class QuestionairreActivity extends AppCompatActivity {
                 if (indexOfQuestion == 0) {
                     ((SeekBar) findViewById(R.id.seekBar1)).setMax(4);
                     ((SeekBar) findViewById(R.id.seekBar1)).setProgress(2);
-                    findViewById(R.id.imageButton3).setEnabled(false);
-                    findViewById(R.id.imageButton4).setEnabled(true);
+                    findViewById(R.id.prev_button).setEnabled(false);
+                    findViewById(R.id.next_button).setEnabled(true);
                 } else {
                     ((SeekBar) findViewById(R.id.seekBar1)).setMax(2);
                     ((SeekBar) findViewById(R.id.seekBar1)).setProgress(1);
-                    findViewById(R.id.imageButton3).setEnabled(true);
-                    findViewById(R.id.imageButton4).setEnabled(true);
+                    findViewById(R.id.prev_button).setEnabled(true);
+                    findViewById(R.id.next_button).setEnabled(true);
                 }
             }
         });
 
-        findViewById(R.id.imageButton4).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.next_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatabaseHandler db = new DatabaseHandler(getApplicationContext());
@@ -99,8 +99,8 @@ public class QuestionairreActivity extends AppCompatActivity {
                     ((TextView) findViewById(R.id.textView4)).setText(questions.get(indexOfQuestion).answer3_text);
                     ((TextView) findViewById(R.id.textView5)).setText(questions.get(indexOfQuestion).answer2_text);
                 }
-                findViewById(R.id.imageButton4).setEnabled(true);
-                findViewById(R.id.imageButton3).setEnabled(true);
+                findViewById(R.id.next_button).setEnabled(true);
+                findViewById(R.id.prev_button).setEnabled(true);
             }
         });
     }
