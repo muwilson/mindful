@@ -52,6 +52,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String RATING_DATE = "RATING_DATE";
     private static final String RATING = "RATING";
 
+    private int max_question_id = 6;        // 6 is highest default question id
+
+    public int get_max_question_id() {
+        return max_question_id;
+    }
+
+    public void set_max_question_id(int id) {
+        max_question_id = id;
+    }
+
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -61,11 +71,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         // Creating Questions Table
         String CREATE_QUESTIONS_TABLE = "CREATE TABLE " + TABLE_QUESTIONS + " ( "
-                + QUESTION_ID + " INTEGER PRIMARY KEY, "
+                + QUESTION_ID + " INTEGER, "
                 + QUESTION_TEXT + " TEXT, "
                 + ANSWER_1 + " TEXT, "
                 + ANSWER_2 + " TEXT, "
-                + ANSWER_3 + " TEXT )";
+                + ANSWER_3 + " TEXT, "
+                + "PRIMARY KEY(" + QUESTION_ID + ", " + QUESTION_TEXT + ")";
         db.execSQL(CREATE_QUESTIONS_TABLE);
 
         String POPULATE_QUESTIONS_TABLE = "INSERT INTO " + TABLE_QUESTIONS + " VALUES "
@@ -243,7 +254,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     // Create, Read, Update, Delete operations
-    private void addQuestion(Question question) {
+    public boolean addQuestion(Question question) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -254,8 +265,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(ANSWER_3, question.answer3_text);
 
         // Inserting Row
-        db.insert(TABLE_QUESTIONS, null, values);
+        long result = 0;
+        result = db.insert(TABLE_QUESTIONS, null, values);
         db.close(); // Closing database connection
+        return !(result == -1);
     }
 
     public List<Question> getQuestions() {

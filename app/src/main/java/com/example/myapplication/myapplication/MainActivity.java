@@ -447,6 +447,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.imageButton9).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AddQuestionActivity.class);
+                startActivity(intent);
+            }
+        });
+
         if (db.didRateToday()) {
             findViewById(R.id.imageButton2).setOnClickListener(new View.OnClickListener() {
                 @Override
