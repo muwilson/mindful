@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,6 +46,7 @@ public class QuestionairreActivity extends AppCompatActivity {
         findViewById(R.id.prev_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ((Button) findViewById(R.id.next_button)).setText("NEXT QUESTION");
                 if (indexOfQuestion == 0) QuestionairreActivity.super.onBackPressed();
                 else {
                     --indexOfQuestion;
@@ -91,6 +93,11 @@ public class QuestionairreActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "You're finished! Nice job!", Toast.LENGTH_SHORT).show();
                     QuestionairreActivity.super.onBackPressed();
                 } else {
+                    if (indexOfQuestion == numQuestions - 2) {
+                        ((Button) findViewById(R.id.next_button)).setText("SUBMIT");
+                    } else {
+                        ((Button) findViewById(R.id.next_button)).setText("NEXT QUESTION");
+                    }
                     ++indexOfQuestion;
                     ((SeekBar) findViewById(R.id.seekBar1)).setMax(2);
                     ((SeekBar) findViewById(R.id.seekBar1)).setProgress(1);
