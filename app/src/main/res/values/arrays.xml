@@ -1,55 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="spinner1Items">
+    <string-array name="day_quality_spinner_items">
         <item>Very Bad</item>
         <item>Bad</item>
         <item>Meh</item>
         <item>Good</item>
         <item>Very Good</item>
-    </string-array>
-    <string-array name="spinner2Items">
-        <item>Stress</item>
-        <item>Diet</item>
-        <item>Sleep</item>
-        <item>Work</item>
-        <item>Exercise</item>
-        <item>Social</item>
-    </string-array>
-    <string-array name="day_qualities">
-        <item>very bad</item>
-        <item>bad</item>
-        <item>meh</item>
-        <item>good</item>
-        <item>very good</item>
-    </string-array>
-    <string-array name="stress_levels">
-        <item>Very Stressed</item>
-        <item>Somewhat Stressed</item>
-        <item>Not Stressed</item>
-    </string-array>
-    <string-array name="diet_levels">
-        <item>Unhealthy</item>
-        <item>Somewhat Healthy</item>
-        <item>Healthy</item>
-    </string-array>
-    <string-array name="sleep_quality">
-        <item>Poorly</item>
-        <item>Okay</item>
-        <item>Well</item>
-    </string-array>
-    <string-array name="work_quality">
-        <item>Poorly</item>
-        <item>Okay</item>
-        <item>Well</item>
-    </string-array>
-    <string-array name="exercise_levels">
-        <item>Not at all</item>
-        <item>A little</item>
-        <item>A lot</item>
-    </string-array>
-    <string-array name="friends_talked_to">
-        <item>0-1</item>
-        <item>2-9</item>
-        <item>10+</item>
     </string-array>
 </resources>

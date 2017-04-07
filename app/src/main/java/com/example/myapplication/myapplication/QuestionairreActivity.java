@@ -34,7 +34,7 @@ public class QuestionairreActivity extends AppCompatActivity {
         DatabaseHandler db = new DatabaseHandler(this);
         questions = db.getQuestions();
 
-        questions.add(0, new Question(0, "How are you feeling today?", "Very Bad", "Meh", "Very Good"));
+        questions.add(0, new Question(0, "How are you feeling today?", "Very Bad", "Meh", "Very Good", "Day Quality"));
         this.numQuestions = questions.size();
 
         setContentView(R.layout.activity_questionairre);

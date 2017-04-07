@@ -51,33 +51,43 @@ public class ViewingActivity extends AppCompatActivity implements AdapterView.On
 
     // load the pie chart with the data of the spinners
     public void load_pie_graph() {
+
         // get pie chart
         pieChart = (PieChart) findViewById(R.id.chart1);
         String question_type;
         // get strings for the pie chart
-        String type[];
-        if (question_id == 0) {
-            type = getResources().getStringArray(R.array.stress_levels);
-            question_type = "Stress levels";
-        } else if (question_id == 1) {
-            type = getResources().getStringArray(R.array.diet_levels);
-            question_type = "Diet levels";
-        } else if (question_id == 2) {
-            type = getResources().getStringArray(R.array.sleep_quality);
-            question_type = "Sleep quality";
-        } else if (question_id == 3) {
-            type = getResources().getStringArray(R.array.work_quality);
-            question_type = "Work quality";
-        } else if (question_id == 4) {
-            type = getResources().getStringArray(R.array.exercise_levels);
-            question_type = "Exercise levels";
-        } else {    // question_id == 5
-            type = getResources().getStringArray(R.array.friends_talked_to);
-            question_type = "# of friends talked to";
-        }
+//        if (question_id == 0) {
+//            type = getResources().getStringArray(R.array.stress_levels);
+//            question_type = "Stress levels";
+//        } else if (question_id == 1) {
+//            type = getResources().getStringArray(R.array.diet_levels);
+//            question_type = "Diet levels";
+//        } else if (question_id == 2) {
+//            type = getResources().getStringArray(R.array.sleep_quality);
+//            question_type = "Sleep quality";
+//        } else if (question_id == 3) {
+//            type = getResources().getStringArray(R.array.work_quality);
+//            question_type = "Work quality";
+//        } else if (question_id == 4) {
+//            type = getResources().getStringArray(R.array.exercise_levels);
+//            question_type = "Exercise levels";
+//        } else {    // question_id == 5
+//            type = getResources().getStringArray(R.array.friends_talked_to);
+//            question_type = "# of friends talked to";
+//        }
+        String[] type = new String[3];
 
         // get database
         DatabaseHandler db = new DatabaseHandler(this);
+
+        // get questions for graph description values
+        List<Question> question_list = db.getQuestions();
+        type[0] = question_list.get(question_id).answer1_text;
+        type[1] = question_list.get(question_id).answer2_text;
+        type[2] = question_list.get(question_id).answer3_text;
+        question_type = question_list.get(question_id).spinner_tag;
+
+        // get answers for the actual values in the pie chart
         List<Answer> answers = db.getAnswers(question_id + 1, day_quality);
 
         int response_frequency[] = new int[3];     // default initial value to zero
@@ -100,7 +110,7 @@ public class ViewingActivity extends AppCompatActivity implements AdapterView.On
         }
 
         // establish data for the pie chart
-        set = new PieDataSet(entries, question_type + " on a " + getResources().getStringArray(R.array.day_qualities)[day_quality] + " day");
+        set = new PieDataSet(entries, question_type + " on a " + ((Spinner) findViewById(R.id.day_quality_spinner)).getSelectedItem().toString() + " day");
         set.setColors(colors);
         set.setValueTextSize(18f);
         set.setValueFormatter(new PercentFormatter());
@@ -118,6 +128,35 @@ public class ViewingActivity extends AppCompatActivity implements AdapterView.On
         legend.setPosition(Legend.LegendPosition.PIECHART_CENTER);
         // reload pie chart
         pieChart.invalidate();
+        pieChart.animateY(1000);
+        if (entries.size() == 0) {
+            Toast.makeText(getApplicationContext(), "There is no data for this question yet!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void load_question_spinner() {
+        // get database
+        DatabaseHandler db = new DatabaseHandler(this);
+        List<Question> question_list = db.getQuestions();
+
+        // initialize spinner_array to use in spinner creation
+        ArrayList<String> spinner_array = new ArrayList<String>();
+        for (Question q : question_list) {
+            spinner_array.add(q.spinner_tag);
+        }
+
+        // find question spinner
+        Spinner spinner = (Spinner) findViewById(R.id.question_spinner);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinner_array);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+
+        // update questions set
+        questions = new HashSet(question_list);
     }
 
     @Override
@@ -125,38 +164,40 @@ public class ViewingActivity extends AppCompatActivity implements AdapterView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewing);
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        // get database
+        DatabaseHandler db = new DatabaseHandler(this);
+        List<Question> question_list = db.getQuestions();
+        // initialize spinner_array to use in spinner creation
+        ArrayList<String> spinner_array = new ArrayList<String>();
+        for (Question q : question_list) {
+            spinner_array.add(q.spinner_tag);
+        }
+        Spinner spinner = (Spinner) findViewById(R.id.day_quality_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.spinner1Items, android.R.layout.simple_spinner_item);
+                R.array.day_quality_spinner_items, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-        spinner = (Spinner) findViewById(R.id.spinner2);
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        adapter = ArrayAdapter.createFromResource(this,
-                R.array.spinner2Items, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+//        spinner = (Spinner) findViewById(R.id.question_spinner);
+//        // Create an ArrayAdapter using the string array and a default spinner layout
+//        adapter = ArrayAdapter.createFromResource(this,
+//                R.array.spinner2Items, android.R.layout.simple_spinner_item);
+//        // Specify the layout to use when the list of choices appears
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        // Apply the adapter to the spinner
+//        spinner.setAdapter(adapter);
+//        spinner.setOnItemSelectedListener(this);
 
         // populate the sets
-        String[] quality_array = getResources().getStringArray(R.array.spinner1Items);
+        String[] quality_array = getResources().getStringArray(R.array.day_quality_spinner_items);
 //        ArrayAdapter<String> string_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, quality_array);
 //        ListView lv = (ListView)findViewById(R.id)
         day_qualities = new HashSet(Arrays.asList(quality_array));
-        String[] question_array = getResources().getStringArray(R.array.spinner2Items);
-//        string_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, question_array);
-//        for (int i = 0; i < string_adapter.getCount(); ++i) {
-//            questions.add(string_adapter.getItem(i));
-//        }
-        questions = new HashSet(Arrays.asList(question_array));
-
+        load_question_spinner();
         load_pie_graph();
     }
 
@@ -188,5 +229,12 @@ public class ViewingActivity extends AppCompatActivity implements AdapterView.On
 
     public void onNothingSelected(AdapterView<?> parent) {
         return;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        load_question_spinner();
+        load_pie_graph();
     }
 }

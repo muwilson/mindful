@@ -8,26 +8,27 @@
 
     <EditText
         android:id="@+id/insert_question"
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="40dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="56dp"
         android:ems="10"
+        android:hint="Insert Question Here"
         android:inputType="textPersonName"
-        android:text="Insert Question Here"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="89dp"
-        android:layout_marginLeft="48dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="169dp"
         android:layout_height="46dp"
-        android:text="Add Question"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="24dp"
         android:layout_marginLeft="24dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:layout_marginTop="24dp"
+        android:hint="Add Question"
+        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
+        android:textColor="@android:color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/insert_negative_value"
@@ -35,11 +36,11 @@
         android:layout_height="40dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Insert Negative Value Here"
-        android:layout_marginTop="18dp"
-        app:layout_constraintTop_toBottomOf="@+id/insert_question"
-        android:layout_marginLeft="48dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:hint="Insert Negative Value Here"
+        android:layout_marginLeft="36dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@+id/question_explanation" />
 
     <EditText
         android:id="@+id/insert_neutral_value"
@@ -47,10 +48,10 @@
         android:layout_height="40dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Insert Neutral Value Here"
-        android:layout_marginTop="18dp"
+        android:hint="Insert Neutral Value Here"
+        android:layout_marginTop="4dp"
         app:layout_constraintTop_toBottomOf="@+id/insert_negative_value"
-        android:layout_marginLeft="48dp"
+        android:layout_marginLeft="36dp"
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <EditText
@@ -59,31 +60,85 @@
         android:layout_height="40dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Insert Positive Value Here"
-        android:layout_marginTop="18dp"
+        android:hint="Insert Positive Value Here"
+        android:layout_marginTop="4dp"
         app:layout_constraintTop_toBottomOf="@+id/insert_neutral_value"
-        android:layout_marginLeft="48dp"
+        android:layout_marginLeft="36dp"
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
         android:id="@+id/submit_button"
         android:layout_width="136dp"
         android:layout_height="86dp"
-        android:layout_marginLeft="216dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginLeft="212dp"
         android:text="submit"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/insert_positive_value" />
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/question_id_word_explanation" />
 
     <TextView
         android:id="@+id/error_message"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="4dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="@color/red"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/submit_button" />
+
+    <EditText
+        android:id="@+id/question_id_word"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="36dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Insert Question ID Word"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@+id/value_explanation" />
+
+    <TextView
+        android:id="@+id/question_id_word_explanation"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="4dp"
+        android:text="Above is the identifier that will be used in the dropdown menu of the analytics page."
+        android:textAlignment="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question_id_word"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.507" />
+
+    <TextView
+        android:id="@+id/value_explanation"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="4dp"
+        android:text="The three entries above are the different answer options that will appear for this question."
+        android:textAlignment="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/insert_positive_value"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.507" />
+
+    <TextView
+        android:id="@+id/question_explanation"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="4dp"
+        android:text="Above is the exact wording of your question."
+        android:textAlignment="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/insert_question"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.507" />
 
 </android.support.constraint.ConstraintLayout>

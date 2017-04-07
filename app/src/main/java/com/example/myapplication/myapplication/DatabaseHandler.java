@@ -36,6 +36,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String ANSWER_1 = "ANSWER_1";
     private static final String ANSWER_2 = "ANSWER_2";
     private static final String ANSWER_3 = "ANSWER_3";
+    private static final String SPINNER_TAG = "SPINNER_TAG";
 
     // Answers table name
     private static final String TABLE_ANSWERS = "ANSWERS";
@@ -76,16 +77,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + ANSWER_1 + " TEXT, "
                 + ANSWER_2 + " TEXT, "
                 + ANSWER_3 + " TEXT, "
-                + "PRIMARY KEY(" + QUESTION_ID + ", " + QUESTION_TEXT + ")";
+                + SPINNER_TAG + " TEXT, "
+                + "PRIMARY KEY(" + QUESTION_ID + ", " + QUESTION_TEXT + "))";
         db.execSQL(CREATE_QUESTIONS_TABLE);
 
         String POPULATE_QUESTIONS_TABLE = "INSERT INTO " + TABLE_QUESTIONS + " VALUES "
-                + " (1, 'How stressed are you?', 'Very Stressed', 'Somewhat Stressed', 'Not Stressed'), "
-                + " (2, 'How have you been eating?', 'Unhealthy', 'Somewhat Healthy', 'Healthy'), "
-                + " (3, 'How did you sleep last night?', 'Poorly', 'Okay', 'Well'), "
-                + " (4, 'How did work go today?', 'Poorly', 'Okay', 'Well'), "
-                + " (5, 'How much have you exercised today?', 'Not at all', 'A little', 'A lot'), "
-                + " (6, 'How many friends and family have you talked to today?', '0-1', '2-9', '10+') ";
+                + " (1, 'How stressed are you?', 'Very Stressed', 'Somewhat Stressed', 'Not Stressed', 'Stress'), "
+                + " (2, 'How have you been eating?', 'Unhealthy', 'Somewhat Healthy', 'Healthy', 'Diet'), "
+                + " (3, 'How did you sleep last night?', 'Poorly', 'Okay', 'Well', 'Sleep'), "
+                + " (4, 'How did work go today?', 'Poorly', 'Okay', 'Well', 'Work'), "
+                + " (5, 'How much have you exercised today?', 'Not at all', 'A little', 'A lot', 'Exercise'), "
+                + " (6, 'How many friends and family have you talked to today?', '0-1', '2-9', '10+', '# friends talked to') ";
         db.execSQL(POPULATE_QUESTIONS_TABLE);
 
         //Creating Ratings Table
@@ -263,6 +265,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(ANSWER_1, question.answer1_text);
         values.put(ANSWER_2, question.answer2_text);
         values.put(ANSWER_3, question.answer3_text);
+        values.put(SPINNER_TAG, question.spinner_tag);
 
         // Inserting Row
         long result = 0;
@@ -288,6 +291,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 question.answer1_text = cursor.getString(2);
                 question.answer2_text = cursor.getString(3);
                 question.answer3_text = cursor.getString(4);
+                question.spinner_tag = cursor.getString(5);
                 // Adding contact to list
                 questionList.add(question);
             } while (cursor.moveToNext());
