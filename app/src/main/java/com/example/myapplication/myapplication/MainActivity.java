@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         staticLabelsFormatter.setDynamicLabelFormatter(new DateAsXAxisLabelFormatter(this));
         // set date label formatter
         graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
-        graph.getGridLabelRenderer().setNumHorizontalLabels(4); // only 4 because of the space
+        graph.getGridLabelRenderer().setNumHorizontalLabels(3); // only 4 because of the space
         graph.getGridLabelRenderer().setNumVerticalLabels(3);
         // set manual x bounds to have nice steps
         graph.getViewport().setMinX(dataPointList.get(0).getX());
@@ -477,5 +477,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         loadGraph();
+        DatabaseHandler db = new DatabaseHandler(this);
+        if (db.didRateToday()) {
+            findViewById(R.id.imageButton2).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getApplicationContext(), "You've already journalled today!", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } else {
+            findViewById(R.id.imageButton2).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), QuestionairreActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
     }
 }
