@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jjoe64.graphview.GraphView;
@@ -69,6 +70,11 @@ public class MainActivity extends AppCompatActivity {
         graph.getGridLabelRenderer().setNumHorizontalLabels(4); // only 4 because of the space
         graph.getGridLabelRenderer().setNumVerticalLabels(3);
         // set manual x bounds to have nice steps
+        //null state
+        if (ratings.size() != 0) {
+            TextView t = (TextView) findViewById(R.id.textView10);
+            t.setText("");
+        }
         if (ratings.size() == 1) {
             long DAY_IN_MS = 1000 * 60 * 60 * 24;
             graph.getViewport().setMinX(dataPointList.get(0).getX() - DAY_IN_MS);

@@ -139,4 +139,20 @@
         app:layout_constraintBottom_toTopOf="@+id/imageButton9"
         app:layout_constraintRight_toRightOf="parent" />
 
+    <TextView
+        android:id="@+id/textView10"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_width="280dp"
+        android:layout_height="265dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="28dp"
+        android:text="We don't have any \n data for you. Click the \n Questionnaire button below\n to get started!"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="28dp" />
+
 </android.support.constraint.ConstraintLayout>
