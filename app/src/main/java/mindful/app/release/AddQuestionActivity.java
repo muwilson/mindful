@@ -1,25 +1,15 @@
-package com.example.myapplication.myapplication;
+package mindful.app.release;
 
 
 import android.app.ActionBar;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
+import mindful.app.release.R;
 
 public class AddQuestionActivity extends AppCompatActivity {
     @Override

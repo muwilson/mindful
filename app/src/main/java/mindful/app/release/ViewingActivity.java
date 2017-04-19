@@ -1,4 +1,4 @@
-package com.example.myapplication.myapplication;
+package mindful.app.release;
 
 import android.app.ActionBar;
 import android.graphics.Color;
@@ -8,36 +8,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.Spinner;
-import android.app.ListActivity;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Arrays;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.Vector;
 
+import mindful.app.release.R;
 import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.components.YAxis;
-import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
-import com.github.mikephil.charting.utils.ColorTemplate;
-import com.github.mikephil.charting.interfaces.datasets.IPieDataSet;
-import com.github.mikephil.charting.utils.Utils;
-
-import static com.github.mikephil.charting.components.Legend.LegendPosition.PIECHART_CENTER;
 
 public class ViewingActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     public int day_quality = 0;

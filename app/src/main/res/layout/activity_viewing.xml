@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.myapplication.myapplication.ViewingActivity">
+    tools:context="com.example.myapplication.pkg.mindful.app.release.ViewingActivity">
 
     <Spinner
         android:id="@+id/day_quality_spinner"

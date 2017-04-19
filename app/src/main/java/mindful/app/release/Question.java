@@ -1,4 +1,4 @@
-package com.example.myapplication.myapplication;
+package mindful.app.release;
 
 /**
  * Created by muwilson, hasatahm, moeahmed on 4/7/2017.

@@ -1,4 +1,4 @@
-package com.example.myapplication.myapplication;
+package mindful.app.release;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,12 +6,6 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-import android.widget.Toast;
-
-import com.example.myapplication.myapplication.Question;
-import com.example.myapplication.myapplication.QuestionairreActivity;
-import com.example.myapplication.myapplication.Rating;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
